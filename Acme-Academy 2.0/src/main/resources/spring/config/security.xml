@@ -1,0 +1,134 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!-- 
+ * security.xml
+ *
+ * Copyright (C) 2014 Universidad de Sevilla
+ * Author (A) 2012 Rafael Corchuelo (corchu@us.es)
+ * 
+ * The use of this project is hereby constrained to the conditions of the 
+ * TDG Licence, a copy of which you may download from 
+ * http://www.tdg-seville.info/License.html
+ -->
+
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:security="http://www.springframework.org/schema/security"	
+	xsi:schemaLocation="
+		http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-4.0.xsd		
+        http://www.springframework.org/schema/security http://www.springframework.org/schema/security/spring-security-3.2.xsd
+    ">
+
+	<!-- Security infrastructure -->
+
+	<bean id="loginService" class="security.LoginService" />
+
+	<bean id="passwordEncoder"
+		class="org.springframework.security.authentication.encoding.Md5PasswordEncoder" />
+
+	<!-- Access control -->
+
+	<security:http auto-config="true" use-expressions="true">
+		<security:intercept-url pattern="/" access="permitAll" /> 
+
+		<security:intercept-url pattern="/favicon.ico" access="permitAll" /> 
+		<security:intercept-url pattern="/images/**" access="permitAll" /> 
+		<security:intercept-url pattern="/scripts/**" access="permitAll" /> 
+		<security:intercept-url pattern="/styles/**" access="permitAll" /> 
+
+		<security:intercept-url pattern="/views/misc/index.jsp" access="permitAll" /> 
+
+		<security:intercept-url pattern="/security/login.do" access="permitAll" /> 
+		<security:intercept-url pattern="/security/loginFailure.do" access="permitAll" /> 
+
+		<security:intercept-url pattern="/welcome/index.do" access="permitAll" /> 
+		
+		<security:intercept-url pattern="/student/register.do" access="isAnonymous()" />
+		<security:intercept-url pattern="/lecturer/list.do" access="permitAll" />
+		<security:intercept-url pattern="/lecturer/listBySubject.do" access="permitAll" />
+		<security:intercept-url pattern="/subject/list.do" access="permitAll" />
+		<security:intercept-url pattern="/subject/listByLecturer.do" access="permitAll" />
+		<security:intercept-url pattern="/subject/administrator/list.do" access="hasRole('ADMIN')" />
+		<security:intercept-url pattern="/subject/administrator/edit.do" access="hasRole('ADMIN')" /> 
+		<security:intercept-url pattern="/subject/administrator/create.do" access="hasRole('ADMIN')" />
+		<security:intercept-url pattern="/subject/administrator/delete.do" access="hasRole('ADMIN')" />
+		<security:intercept-url pattern="/subject/administrator/error.do" access="hasRole('ADMIN')" />
+		
+		<security:intercept-url pattern="/legalTerms/legalterms.do" access="permitAll" />
+		<security:intercept-url pattern="/legalTerms/cookies.do" access="permitAll" />
+		<security:intercept-url pattern="/legalTerms/legalInformation.do" access="permitAll" />
+		<security:intercept-url pattern="/legalTerms/personalData.do" access="permitAll" />
+		
+		<security:intercept-url pattern="/administrator/dashboard.do" access="hasRole('ADMIN')" />  
+
+	
+		<security:intercept-url pattern="/group/create.do" access="hasRole('LECTURER')" />
+		<security:intercept-url pattern="/group/edit.do" access="hasRole('LECTURER')" /> 
+		<security:intercept-url pattern="/group/list.do" access="hasRole('STUDENT')" />
+		<security:intercept-url pattern="/group/enrol.do" access="hasRole('STUDENT')" />
+		<security:intercept-url pattern="/group/myGroups.do" access="hasRole('STUDENT')" />
+		<security:intercept-url pattern="/group/lecturer/list.do" access="hasRole('LECTURER')" />
+		
+		<security:intercept-url pattern="/assigment/lecturer/edit.do" access="hasRole('LECTURER')" />
+		<security:intercept-url pattern="/assigment/lecturer/create.do" access="hasRole('LECTURER')" />
+		<security:intercept-url pattern="/assigment/student/list.do" access="hasRole('STUDENT')" />
+		
+		
+		<security:intercept-url pattern="/subject/listByLogin.do" access="hasRole('LECTURER')" />
+		
+		<security:intercept-url pattern="/deliverable/upload.do" access="hasRole('STUDENT')" />
+		<security:intercept-url pattern="/deliverable/list.do" access="hasRole('STUDENT')" />
+		<security:intercept-url pattern="/deliverable/lecturer/list.do" access="hasRole('LECTURER')" />
+		
+		<security:intercept-url pattern="/socialIdentity/list.do" access="isAuthenticated()" />
+		<security:intercept-url pattern="/socialIdentity/create.do" access="isAuthenticated()" />
+		<security:intercept-url pattern="/socialIdentity/edit.do" access="isAuthenticated()" />
+		<security:intercept-url pattern="/socialIdentity/delete.do" access="isAuthenticated()" />
+		
+		<security:intercept-url pattern="/learningMaterial/lecturer/create.do" access="hasRole('LECTURER')" />
+		<security:intercept-url pattern="/learningMaterial/lecturer/edit.do" access="hasRole('LECTURER')" />
+		<security:intercept-url pattern="/learningMaterial/lecturer/list.do" access="hasRole('LECTURER')" />
+		<security:intercept-url pattern="/learningMaterial/lecturer/listByGroup.do" access="hasRole('LECTURER')" />
+		<security:intercept-url pattern="/learningMaterial/lecturer/associate.do" access="hasRole('LECTURER')" />
+		<security:intercept-url pattern="/learningMaterial/student/list.do" access="hasRole('STUDENT')" />
+		
+		<security:intercept-url pattern="/syllabus/lecturer/create.do" access="hasRole('LECTURER')" />
+		<security:intercept-url pattern="/syllabus/lecturer/edit.do" access="hasRole('LECTURER')" />
+		<security:intercept-url pattern="/syllabus/lecturer/list.do" access="hasRole('LECTURER')" />
+		<security:intercept-url pattern="/syllabus/lecturer/listUnassociated.do" access="hasRole('LECTURER')" />
+		<security:intercept-url pattern="/syllabus/lecturer/associate.do" access="hasRole('LECTURER')" />
+		<security:intercept-url pattern="/syllabus/lecturer/delete.do" access="hasRole('LECTURER')" />
+		<security:intercept-url pattern="/syllabus/detail.do" access="permitAll" />
+		<security:intercept-url pattern="/syllabus/listBySubject.do" access="permitAll" />
+		<security:intercept-url pattern="/syllabus/error.do" access="permitAll" />
+		
+		<security:intercept-url pattern="/biographyEntry/lecturer/create.do" access="hasRole('LECTURER')" />
+		<security:intercept-url pattern="/biographyEntry/lecturer/edit.do" access="hasRole('LECTURER')" />
+		<security:intercept-url pattern="/biographyEntry/lecturer/list.do" access="hasRole('LECTURER')" />
+		<security:intercept-url pattern="/biographyEntry/listBySyllabus.do" access="permitAll" />
+		<security:intercept-url pattern="/biographyEntry/administrator/list.do" access="hasRole('ADMIN')" />
+		
+		<security:intercept-url pattern="/assesment/lecturer/list.do" access="hasRole('LECTURER')" />
+		<security:intercept-url pattern="/assesment/lecturer/create.do" access="hasRole('LECTURER')" />
+		<security:intercept-url pattern="/assesment/lecturer/edit.do" access="hasRole('LECTURER')" />
+		<security:intercept-url pattern="/assesment/list.do" access="hasRole('STUDENT')" />
+		<security:intercept-url pattern="/assesment/underReview.do" access="hasRole('STUDENT')" />
+		
+		<security:intercept-url pattern="/rubric/lecturer/list.do" access="hasRole('LECTURER')" />
+		<security:intercept-url pattern="/rubric/lecturer/create.do" access="hasRole('LECTURER')" />
+		<security:intercept-url pattern="/rubric/lecturer/edit.do" access="hasRole('LECTURER')" />
+		<security:intercept-url pattern="/rubric/list.do" access="hasAnyRole('STUDENT','LECTURER')" />
+		
+		<security:intercept-url pattern="/**" access="hasRole('NONE')" />
+
+		<security:form-login 
+			login-page="/security/login.do"
+			password-parameter="password" 
+			username-parameter="username"
+			authentication-failure-url="/security/loginFailure.do" />
+
+		<security:logout 
+			logout-success-url="/" 
+			invalidate-session="true" />
+	</security:http>
+
+</beans>

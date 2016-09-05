@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<!-- 
+ * tiles.xml
+ *
+ * Copyright (C) 2013 Universidad de Sevilla
+ * 
+ * The use of this project is hereby constrained to the conditions of the 
+ * TDG Licence, a copy of which you may download from 
+ * http://www.tdg-seville.info/License.html
+ -->
+
+<!DOCTYPE tiles-definitions PUBLIC
+       "-//Apache Software Foundation//DTD Tiles Configuration 2.0//EN"
+       "http://tiles.apache.org/dtds/tiles-config_2_0.dtd">
+       
+<tiles-definitions>
+	<definition name="syllabus/edit" extends="master.page">
+		<put-attribute name="title" value="Añadir/Editar Programa de Estudios" />
+		<put-attribute name="body" value="/views/syllabus/edit.jsp" />
+	</definition>
+	<definition name="syllabus/list" extends="master.page">
+		<put-attribute name="title" value="Lista de Programas de Estudios" />
+		<put-attribute name="body" value="/views/syllabus/list.jsp" />
+	</definition>
+	<definition name="syllabus/listBySubject" extends="master.page">
+		<put-attribute name="title" value="Lista de Programas de Estudios" />
+		<put-attribute name="body" value="/views/syllabus/listBySubject.jsp" />
+	</definition>
+	<definition name="syllabus/listUnassociated" extends="master.page">
+		<put-attribute name="title" value="Lista de Programas de Estudios sin asociar" />
+		<put-attribute name="body" value="/views/syllabus/listUnnassociated.jsp" />
+	</definition>
+	<definition name="syllabus/associate" extends="master.page">
+		<put-attribute name="title" value="Asociar Plan de Estudios" />
+		<put-attribute name="body" value="/views/syllabus/associate.jsp" />
+	</definition>
+	<definition name="syllabus/detail" extends="master.page">
+		<put-attribute name="title" value="Plan de Estudios" />
+		<put-attribute name="body" value="/views/syllabus/detail.jsp" />
+	</definition>
+	<definition name="syllabus/error" extends="master.page">
+		<put-attribute name="title" value="ERROR" />
+		<put-attribute name="body" value="/views/syllabus/error.jsp" />
+	</definition>
+</tiles-definitions>

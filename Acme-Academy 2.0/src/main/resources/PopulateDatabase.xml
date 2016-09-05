@@ -1,0 +1,914 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!-- * PopulateDatabase.xml * * Copyright (C) 2014 Universidad de Sevilla 
+	* * The use of this project is hereby constrained to the conditions of the 
+	* TDG Licence, a copy of which you may download from * http://www.tdg-seville.info/License.html -->
+
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="
+		http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+	">
+
+	<!-- User accounts -->
+
+	<bean id="userAccount1" class="security.UserAccount">
+		<property name="username" value="admin1" />
+		<property name="password" value="e00cf25ad42683b3df678c61f42c6bda" />
+		<property name="authorities">
+			<list>
+				<bean class="security.Authority">
+					<property name="authority" value="ADMIN" />
+				</bean>
+			</list>
+		</property>
+	</bean>
+
+	<bean id="userAccount2" class="security.UserAccount">
+		<property name="username" value="lecturer1" />
+		<property name="password" value="edf90aff836f1fc27fc04aeebf6e84b9" />
+		<property name="authorities">
+			<list>
+				<bean class="security.Authority">
+					<property name="authority" value="LECTURER" />
+				</bean>
+			</list>
+		</property>
+	</bean>
+
+	<bean id="userAccount3" class="security.UserAccount">
+		<property name="username" value="super" />
+		<property name="password" value="1b3231655cebb7a1f783eddf27d254ca" />
+		<property name="authorities">
+			<list>
+				<bean class="security.Authority">
+					<property name="authority" value="ADMIN" />
+				</bean>
+				<bean class="security.Authority">
+					<property name="authority" value="STUDENT" />
+				</bean>
+			</list>
+		</property>
+	</bean>
+
+	<bean id="userAccount4" class="security.UserAccount">
+		<property name="username" value="student1" />
+		<property name="password" value="5e5545d38a68148a2d5bd5ec9a89e327" />
+		<property name="authorities">
+			<list>
+				<bean class="security.Authority">
+					<property name="authority" value="STUDENT" />
+				</bean>
+			</list>
+		</property>
+	</bean>
+
+	<bean id="userAccount7" class="security.UserAccount">
+		<property name="username" value="student2" />
+		<property name="password" value="213ee683360d88249109c2f92789dbc3" />
+		<property name="authorities">
+			<list>
+				<bean class="security.Authority">
+					<property name="authority" value="STUDENT" />
+				</bean>
+			</list>
+		</property>
+	</bean>
+
+	<bean id="userAccount8" class="security.UserAccount">
+		<property name="username" value="student3" />
+		<property name="password" value="8e4947690532bc44a8e41e9fb365b76a" />
+		<property name="authorities">
+			<list>
+				<bean class="security.Authority">
+					<property name="authority" value="STUDENT" />
+				</bean>
+			</list>
+		</property>
+	</bean>
+
+
+
+	<bean id="userAccount5" class="security.UserAccount">
+		<property name="username" value="admin2" />
+		<property name="password" value="c84258e9c39059a89ab77d846ddab909" />
+		<property name="authorities">
+			<list>
+				<bean class="security.Authority">
+					<property name="authority" value="ADMIN" />
+				</bean>
+			</list>
+		</property>
+	</bean>
+
+	<bean id="userAccount6" class="security.UserAccount">
+		<property name="username" value="admin3" />
+		<property name="password" value="32cacb2f994f6b42183a1300d9a3e8d6" />
+		<property name="authorities">
+			<list>
+				<bean class="security.Authority">
+					<property name="authority" value="ADMIN" />
+				</bean>
+			</list>
+		</property>
+	</bean>
+
+	<bean id="userAccount9" class="security.UserAccount">
+		<property name="username" value="lecturer2" />
+		<property name="password" value="3a3c497dad8cb7af8da97ce8b3f9b7f3" />
+		<property name="authorities">
+			<list>
+				<bean class="security.Authority">
+					<property name="authority" value="LECTURER" />
+				</bean>
+			</list>
+		</property>
+	</bean>
+
+	<bean id="userAccount10" class="security.UserAccount">
+		<property name="username" value="lecturer3" />
+		<property name="password" value="1c7a6d906e7a421e42dd9f604aaac498" />
+		<property name="authorities">
+			<list>
+				<bean class="security.Authority">
+					<property name="authority" value="LECTURER" />
+				</bean>
+			</list>
+		</property>
+	</bean>
+	
+	<bean id="userAccount11" class="security.UserAccount">
+		<property name="username" value="lecturer4" />
+		<property name="password" value="99de57cb2350bbac45c7d32fdb57eea3" />
+		<property name="authorities">
+			<list>
+				<bean class="security.Authority">
+					<property name="authority" value="LECTURER" />
+				</bean>
+			</list>
+		</property>
+	</bean>
+	
+	
+
+
+	<!-- Other domain beans come here -->
+	<!-- Administrators -->
+	<bean id="administrator1" class="domain.Administrator">
+		<property name="userAccount" ref="userAccount1" />
+		<property name="name" value="Paco" />
+		<property name="surname" value="Fdez" />
+		<property name="email" value="paco@gmail.com" />
+		<property name="phone" value="+34(741)7666" />
+		<property name="socialIdentities">
+			<list>
+				
+			</list>
+		</property>
+	</bean>
+
+	<bean id="administrator2" class="domain.Administrator">
+		<property name="userAccount" ref="userAccount5" />
+		<property name="name" value="Jaime" />
+		<property name="surname" value="Melgarejo" />
+		<property name="email" value="jm@gmail.com" />
+		<property name="phone" value="+34(732)7216" />
+		<property name="socialIdentities">
+			<list>
+				
+			</list>
+		</property>
+	</bean>
+
+	<bean id="administrator3" class="domain.Administrator">
+		<property name="userAccount" ref="userAccount6" />
+		<property name="name" value="Diego" />
+		<property name="surname" value="Barrios" />
+		<property name="email" value="db@gmail.com" />
+		<property name="phone" value="+37(254)2489" />
+		<property name="socialIdentities">
+			<list>
+				
+			</list>
+		</property>
+	</bean>
+
+
+
+	<!-- Lecturers -->
+	<bean id="lecturer1" class="domain.Lecturer">
+		<property name="userAccount" ref="userAccount2" />
+		<property name="name" value="Borja" />
+		<property name="surname" value="Gil" />
+		<property name="email" value="borja@gmail.com" />
+		<property name="phone" value="+34(221)1478" />
+		<property name="groups">
+			<list>
+				<ref bean="group1" />
+
+			</list>
+		</property>
+		<property name="assigments">
+			<list>
+				<ref bean="assigment3" />
+			</list>
+		</property>
+		<property name="subjects">
+			<list>
+				<ref bean="subject1" />
+
+			</list>
+		</property>
+		<property name="learningMaterials">
+			<list>
+				<ref bean="learningMaterial1" />
+
+			</list>
+		</property>
+		<property name="socialIdentities">
+			<list>
+				<ref bean="socialIdentity1" />
+			</list>
+		</property>
+		<property name="syllabus">
+			<list>
+				<ref bean="syllabus1" />
+			</list>
+		</property>
+	</bean>
+
+	<bean id="lecturer2" class="domain.Lecturer">
+		<property name="userAccount" ref="userAccount9" />
+		<property name="name" value="Pepa" />
+		<property name="surname" value="Bueno" />
+		<property name="email" value="pbueno@acme.com" />
+		<property name="phone" value="+34(556)2145" />
+		<property name="groups">
+			<list>
+				<ref bean="group2" />
+			</list>
+		</property>
+		<property name="assigments">
+			<list>
+				<ref bean="assigment2" />
+			</list>
+		</property>
+		<property name="subjects">
+			<list>
+				<ref bean="subject2" />
+
+			</list>
+		</property>
+		<property name="learningMaterials">
+			<list>
+				<ref bean="learningMaterial2" />
+			</list>
+		</property>
+		<property name="socialIdentities">
+			<list>
+				<ref bean="socialIdentity2" />
+			</list>
+		</property>
+		<property name="syllabus">
+			<list>
+				<ref bean="syllabus2" />
+			</list>
+		</property>
+	</bean>
+
+	<bean id="lecturer3" class="domain.Lecturer">
+		<property name="userAccount" ref="userAccount10" />
+		<property name="name" value="Marta" />
+		<property name="surname" value="Díaz" />
+		<property name="email" value="mdiaz1@acme.com" />
+		<property name="phone" value="+34(954)2548" />
+		<property name="groups">
+			<list>
+				<ref bean="group3" />
+
+			</list>
+		</property>
+		<property name="assigments">
+			<list>
+				<ref bean="assigment1" />
+
+			</list>
+		</property>
+		<property name="subjects">
+			<list>
+				<ref bean="subject3" />
+
+			</list>
+		</property>
+		<property name="learningMaterials">
+			<list>
+				<ref bean="learningMaterial3" />
+			</list>
+		</property>
+		<property name="socialIdentities">
+			<list>
+				
+			</list>
+		</property>
+		<property name="syllabus">
+			<list>
+				
+			</list>
+		</property>
+	</bean>
+	
+	<bean id="lecturer4" class="domain.Lecturer">
+		<property name="userAccount" ref="userAccount11" />
+		<property name="name" value="Mnuel" />
+		<property name="surname" value="Pérez" />
+		<property name="email" value="mperez@acme.com" />
+		<property name="phone" value="+34(924)5148" />
+		<property name="groups">
+			<list>
+				
+
+			</list>
+		</property>
+		<property name="assigments">
+			<list>
+				
+
+			</list>
+		</property>
+		<property name="subjects">
+			<list>
+				
+
+			</list>
+		</property>
+		<property name="learningMaterials">
+			<list>
+
+			</list>
+		</property>
+		<property name="socialIdentities">
+			<list>
+				
+			</list>
+		</property>
+		<property name="syllabus">
+			<list>
+				
+			</list>
+		</property>
+	</bean>
+	
+	
+
+
+	<!-- Subjects -->
+	<bean id="subject1" class="domain.Subject">
+		<property name="code" value="AA-000" />
+		<property name="title" value="Física I" />
+		<property name="groups">
+			<list>
+				<ref bean="group1" />
+
+			</list>
+		</property>
+		<property name="assigments">
+			<list>
+				<ref bean="assigment3" />
+			</list>
+		</property>
+		<property name="lecturers">
+			<list>
+				<ref bean="lecturer1" />
+
+			</list>
+		</property>
+		<property name="syllabi">
+			<list>
+				<ref bean="syllabus1" />
+			</list>
+		</property>
+	</bean>
+
+	<bean id="subject2" class="domain.Subject">
+		<property name="code" value="BC-323" />
+		<property name="title" value="Dibujo II" />
+		<property name="groups">
+			<list>
+				<ref bean="group2" />
+
+			</list>
+		</property>
+		<property name="assigments">
+			<list>
+				<ref bean="assigment2" />
+
+			</list>
+		</property>
+		<property name="lecturers">
+			<list>
+				<ref bean="lecturer2" />
+
+
+			</list>
+		</property>
+		<property name="syllabi">
+			<list>
+				<ref bean="syllabus2" />
+			</list>
+		</property>
+	</bean>
+
+	<bean id="subject3" class="domain.Subject">
+		<property name="code" value="RT-845" />
+		<property name="title" value="Diseño y Pruebas" />
+		<property name="groups">
+			<list>
+				<ref bean="group3" />
+
+			</list>
+		</property>
+		<property name="assigments">
+			<list>
+				<ref bean="assigment1" />
+
+			</list>
+		</property>
+		<property name="lecturers">
+			<list>
+				<ref bean="lecturer3" />
+
+			</list>
+		</property>
+		<property name="syllabi">
+			<list>
+				
+			</list>
+		</property>
+	</bean>
+
+	<!-- Groups -->
+	<bean id="group1" class="domain.Group">
+		<property name="name" value="Física I - 2017" />
+		<property name="description" value="ASignatura de Física de Primer Curso" />
+		<property name="academicYear" value="2017" />
+		<property name="lecturer" ref="lecturer1" />
+		<property name="students">
+			<list>
+				<ref bean="student1" />
+				<ref bean="student2" />
+			</list>
+		</property>
+		<property name="subject" ref="subject1" />
+		<property name="assigments">
+			<list>
+				<ref bean="assigment3" />
+
+			</list>
+		</property>
+		<property name="deliverables">
+			<list>
+				<ref bean="deliverable1" />
+
+			</list>
+		</property>
+		<property name="learningMaterials">
+			<list>
+				<ref bean="learningMaterial1" />
+
+			</list>
+		</property>
+	</bean>
+
+	<bean id="group2" class="domain.Group">
+		<property name="name" value="Dibujo II - 2017" />
+		<property name="description" value="Asignatura de Dibujo de Segundo Curso" />
+		<property name="academicYear" value="2017" />
+		<property name="lecturer" ref="lecturer2" />
+		<property name="students">
+			<list>
+				<ref bean="student1" />
+				<ref bean="student3" />
+			</list>
+		</property>
+		<property name="subject" ref="subject2" />
+		<property name="assigments">
+			<list>
+				<ref bean="assigment2" />
+
+			</list>
+		</property>
+		<property name="deliverables">
+			<list>
+				<ref bean="deliverable2" />
+			</list>
+		</property>
+		<property name="learningMaterials">
+			<list>
+				<ref bean="learningMaterial2" />
+			</list>
+		</property>
+	</bean>
+
+	<bean id="group3" class="domain.Group">
+		<property name="name" value="DT - 2017" />
+		<property name="description" value="Design and Testing" />
+		<property name="academicYear" value="2017" />
+		<property name="lecturer" ref="lecturer3" />
+		<property name="students">
+			<list>
+				<ref bean="student2" />
+				<ref bean="student3" />
+			</list>
+		</property>
+		<property name="subject" ref="subject3" />
+		<property name="assigments">
+			<list>
+				<ref bean="assigment1" />
+
+			</list>
+		</property>
+		<property name="deliverables">
+			<list>
+				<ref bean="deliverable3" />
+			</list>
+		</property>
+		<property name="learningMaterials">
+			<list>
+				<ref bean="learningMaterial3" />
+			</list>
+		</property>
+	</bean>
+
+	<!-- Students -->
+	<bean id="student1" class="domain.Student">
+		<property name="userAccount" ref="userAccount4" />
+		<property name="name" value="Ron" />
+		<property name="surname" value="Weasley" />
+		<property name="email" value="ron@gmail.com" />
+		<property name="phone" value="+34(331)2589" />
+		<property name="groups">
+			<list>
+				<ref bean="group1" />
+				<ref bean="group2" />
+			</list>
+		</property>
+		<property name="socialIdentities">
+			<list>
+				
+			</list>
+		</property>
+	</bean>
+
+	<bean id="student2" class="domain.Student">
+		<property name="userAccount" ref="userAccount7" />
+		<property name="name" value="Martin" />
+		<property name="surname" value="Calleja" />
+		<property name="email" value="mcalleja@gmail.com" />
+		<property name="phone" value="+34(221)7421" />
+		<property name="groups">
+			<list>
+				<ref bean="group1" />
+				<ref bean="group3" />
+			</list>
+		</property>
+		<property name="socialIdentities">
+			<list>
+				
+			</list>
+		</property>
+	</bean>
+
+	<bean id="student3" class="domain.Student">
+		<property name="userAccount" ref="userAccount8" />
+		<property name="name" value="Fátima" />
+		<property name="surname" value="Benjumea" />
+		<property name="email" value="benjumea@acme.com" />
+		<property name="phone" value="+34(727)7554" />
+		<property name="groups">
+			<list>
+				<ref bean="group2" />
+				<ref bean="group3" />
+			</list>
+		</property>
+		<property name="socialIdentities">
+			<list>
+				
+			</list>
+		</property>
+	</bean>
+
+	<!-- Assigment -->
+	<bean id="assigment1" class="domain.Assigment">
+		<property name="title" value="D01" />
+		<property name="description" value="Starting a project" />
+		<property name="mark" value="10" />
+		<property name="openingTime" value="10/10/2017 00:00" />
+		<property name="deadline" value="17/10/2017 23:59" />
+		<property name="lecturer" ref="lecturer3" />
+		<property name="subject" ref="subject3" />
+		<property name="group" ref="group3" />
+		<property name="deliverables">
+			<list>
+				<ref bean="deliverable3" />
+
+			</list>
+		</property>
+		<property name="rubrics">
+			<list>
+				
+			</list>
+		</property>
+	</bean>
+
+	<bean id="assigment2" class="domain.Assigment">
+		<property name="title" value="Entrega Láminas del Curso" />
+		<property name="description" value="Subida de láminas propuestas en AutoCad" />
+		<property name="mark" value="50" />
+		<property name="openingTime" value="05/01/2017 00:00" />
+		<property name="deadline" value="12/01/2017 23:59" />
+		<property name="lecturer" ref="lecturer2" />
+		<property name="subject" ref="subject2" />
+		<property name="group" ref="group2" />
+		<property name="deliverables">
+			<list>
+				<ref bean="deliverable2" />
+			</list>
+		</property>
+		<property name="rubrics">
+			<list>
+				
+			</list>
+		</property>
+	</bean>
+
+	<bean id="assigment3" class="domain.Assigment">
+		<property name="title" value="Estudio Teório Práctica 1" />
+		<property name="description" value="Subida del Estudio Teório Práctica 1" />
+		<property name="mark" value="2" />
+		<property name="openingTime" value="05/02/2017 00:00" />
+		<property name="deadline" value="12/02/2017 23:59" />
+		<property name="lecturer" ref="lecturer1" />
+		<property name="subject" ref="subject1" />
+		<property name="group" ref="group1" />
+		<property name="deliverables">
+			<list>
+				<ref bean="deliverable1" />
+
+			</list>
+		</property>
+		<property name="rubrics">
+			<list>
+				<ref bean="rubric1" />
+				<ref bean="rubric2" />
+			</list>
+		</property>
+	</bean>
+
+	<!-- Deliverables -->
+	<bean id="deliverable1" class="domain.Deliverable">
+		<property name="uploaderStudentID" value="27" />
+		<property name="moment" value="14/10/2017 16:37" />
+		<property name="content" value="https://www.mega.com/rgGRGyhs" />
+		<property name="group" ref="group1" />
+		<property name="assigment" ref="assigment3" />
+		<property name="assesments">
+			<list>
+				<ref bean="assesment1" />
+				<ref bean="assesment2" />
+			</list>
+		</property>
+	</bean>
+
+	<bean id="deliverable2" class="domain.Deliverable">
+		<property name="uploaderStudentID" value="25" />
+		<property name="moment" value="09/01/2017 18:17" />
+		<property name="content" value="https://www.mega.com/tbr58hr" />
+		<property name="group" ref="group2" />
+		<property name="assigment" ref="assigment2" />
+		<property name="assesments">
+			<list>
+				
+			</list>
+		</property>
+	</bean>
+
+	<bean id="deliverable3" class="domain.Deliverable">
+		<property name="uploaderStudentID" value="23" />
+		<property name="moment" value="08/02/2017 13:01" />
+		<property name="content" value="https://www.dropbox.com/gtrhytRhy568RGH" />
+		<property name="group" ref="group3" />
+		<property name="assigment" ref="assigment1" />
+		<property name="assesments">
+			<list>
+				
+			</list>
+		</property>
+	</bean>
+	
+	<!-- LearningMaterials -->
+	<bean id="learningMaterial1" class="domain.LearningMaterial">
+		<property name="title" value="Tema 1" />
+		<property name="notes">
+			<list>
+				<value>Tema 1 del Bloque I de la asignatura.</value>
+			</list> 
+		</property>
+		<property name="content" value="https://www.dropbox.com/effGt541HHf" />
+		<property name="keywords">
+			<list>
+				<value>Tema1</value>
+				<value>Física</value>
+			</list>
+		</property>
+		<property name="group" ref="group1" />
+		<property name="lecturer" ref="lecturer1" />
+		
+	</bean>
+	
+	<bean id="learningMaterial2" class="domain.LearningMaterial">
+		<property name="title" value="Sistema Diédrico" />
+		<property name="notes">
+			<list>
+				<value>Tema correspondiente a la perspectiva diédrica</value>
+			</list> 
+		</property>	
+		<property name="content" value="https://www.consigna.us.es/effGt541HHf" />
+		<property name="keywords">
+			<list>
+				<value>Sistema</value>
+				<value>Diédrico</value>
+				<value>Perspectiva</value>
+			</list>
+		</property>
+		<property name="group" ref="group2" />
+		<property name="lecturer" ref="lecturer2" />
+		
+	</bean>
+	
+	<bean id="learningMaterial3" class="domain.LearningMaterial">
+		<property name="title" value="L02 Domain" />
+		<property name="notes">
+			<list>
+				<value>Lectures from Lesson 2</value>
+			</list> 
+		</property>	
+		<property name="content" value="https://www.consigna.us.es/fefg918rge" />
+		<property name="keywords">
+			<list>
+				<value>Domain</value>
+				<value>Lectures</value>
+				<value>Lesson 2</value>
+			</list>
+		</property>
+		<property name="group" ref="group3" />
+		<property name="lecturer" ref="lecturer3" />
+		
+	</bean>
+	
+	<!-- SocialIdentities -->
+	<bean id="socialIdentity1" class="domain.SocialIdentity">
+		<property name="socialPlatformName" value="Twitter" />
+		<property name="nick" value="@BorGil" />
+		<property name="homepage" value="https://www.twitter.com/borgil" />
+		<property name="email" value="" />
+		<property name="actor" ref="lecturer1" />
+	</bean>
+	
+	<bean id="socialIdentity2" class="domain.SocialIdentity">
+		<property name="socialPlatformName" value="Twitter" />
+		<property name="nick" value="@pepacme" />
+		<property name="homepage" value="https://www.twitter.com/pepacme" />
+		<property name="email" value="pepabueno@acme.com" />
+		<property name="actor" ref="lecturer2" />
+	</bean>
+	
+	
+	<!-- Biography Entries -->
+	<bean id="biographyEntry1" class="domain.BiographyEntry">
+		<property name="title" value="Física Kepler" />
+		<property name="author">
+			<list>
+				<value>J.Kepler</value>
+			</list>
+		</property>
+		<property name="locator" value="Biblioteca de Ingeniería" />
+		<!-- URL opcional -->
+		<property name="syllabi">
+			<list>
+				<ref bean="syllabus1" />
+
+			</list>
+		</property>
+	</bean>
+	
+	<bean id="biographyEntry2" class="domain.BiographyEntry">
+		<property name="title" value="Geometría Descriptiva" />
+		<property name="author">
+			<list>
+				<value>Kollman</value>
+				<value>Minst</value>
+			</list>
+		</property>
+		<property name="locator" value="Biblioteca de Arquitectura" />
+		<!-- URL opcional -->
+		<property name="syllabi">
+			<list>
+				
+
+			</list>
+		</property>
+	</bean>
+	
+	
+	<!-- Syllabi -->
+	
+	<bean id="syllabus1" class="domain.Syllabus">
+		<property name="academicYear" value="2017" />
+		<property name="summary" value="Las presente asignatura trata de hacer comprender al alumno [...]" />
+		<property name="goal">
+			<list>
+				<value>Conocer el campo magnético</value>
+			</list>
+		</property>
+		<property name="prerrequisite">
+			<list>
+				<value>Conocer el campo magnético</value>
+			</list>
+		</property>
+		<property name="evaluationPolicy" value="Para supera la asignatura el alumno deberá supera los dos exámenes parciales [...]" />
+		<property name="lecturer" ref="lecturer1" />
+		<property name="subject" ref="subject1" />
+		<property name="BiographyEntries">
+			<list>
+				<ref bean="biographyEntry1" />
+			</list>
+		</property>
+	</bean>	
+	
+	<bean id="syllabus2" class="domain.Syllabus">
+		<property name="academicYear" value="2016" />
+		<property name="summary" value="Las presente asignatura trata de hacer comprender al alumno [...]" />
+		<property name="goal">
+			<list>
+				<value>Conocer el sistema diédrico</value>
+			</list>
+		</property>
+		<property name="prerrequisite">
+			<list>
+				<value>Saber proyectar el punto la recta y el plano en el sistema diedrico</value>
+			</list>
+		</property>
+		<property name="evaluationPolicy" value="Para supera la asignatura el alumno deberá entregar las láminas del curso y [...]" />
+		<property name="lecturer" ref="lecturer2" />
+		<property name="subject" ref="subject2" />
+		<property name="BiographyEntries">
+			<list>
+				<ref bean="biographyEntry2" />
+			</list>
+		</property>
+	</bean>
+	
+	
+	
+	<!-- Rubrics -->
+	<bean id="rubric1" class="domain.Rubric">
+		<property name="explanation" value="Contenido y Forma" />
+		<property name="percentage" value="10" />
+		<property name="assigment" ref="assigment3" />
+		<property name="assesments">
+			<list>
+				<ref bean="assesment2" />
+			</list>
+		</property>	
+	</bean>
+	
+	<bean id="rubric2" class="domain.Rubric">
+		<property name="explanation" value="Ejercicios" />
+		<property name="percentage" value="90" />
+		<property name="assigment" ref="assigment3" />
+		<property name="assesments">
+			<list>
+				<ref bean="assesment1" />
+			</list>	
+		</property>	
+	</bean>
+	
+	
+	
+	<!-- Assesments -->
+		
+	<bean id="assesment1" class="domain.Assesment">
+		<property name="points" value="70" />
+		<property name="explanation" value="Último ejercicio incorrecto" />
+		<property name="deliverable" ref="deliverable1" />
+		<property name="rubric" ref="rubric2" />
+	</bean>
+	
+	<bean id="assesment2" class="domain.Assesment">
+		<property name="points" value="10" />
+		<property name="explanation" value="Bien Presentado" />
+		<property name="deliverable" ref="deliverable1" />
+		<property name="rubric" ref="rubric1" />
+	</bean>	
+	
+</beans>

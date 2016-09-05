@@ -1,0 +1,107 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!-- * PopulateDatabase.xml * * Copyright (C) 2014 Universidad de Sevilla 
+	* * The use of this project is hereby constrained to the conditions of the 
+	* TDG Licence, a copy of which you may download from * http://www.tdg-seville.info/License.html -->
+
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="
+		http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+	">
+
+	<!-- User accounts -->
+
+	<bean id="userAccount1" class="security.UserAccount">
+		<property name="username" value="admin1" />
+		<property name="password" value="e00cf25ad42683b3df678c61f42c6bda" />
+		<property name="authorities">
+			<list>
+				<bean class="security.Authority">
+					<property name="authority" value="ADMIN" />
+				</bean>
+			</list>
+		</property>
+	</bean>
+
+	<bean id="userAccount2" class="security.UserAccount">
+		<property name="username" value="lecturer1" />
+		<property name="password" value="edf90aff836f1fc27fc04aeebf6e84b9" />
+		<property name="authorities">
+			<list>
+				<bean class="security.Authority">
+					<property name="authority" value="LECTURER" />
+				</bean>
+			</list>
+		</property>
+	</bean>
+
+
+	
+	<!-- Other domain beans come here -->
+	<!-- Administrators -->
+	<bean id="administrator1" class="domain.Administrator">
+		<property name="userAccount" ref="userAccount1" />
+		<property name="name" value="Paco" />
+		<property name="surname" value="Fdez" />
+		<property name="email" value="paco@gmail.com" />
+		<property name="phone" value="+34(741)7666" />
+		<property name="socialIdentities">
+			<list>
+				
+			</list>
+		</property>
+	</bean>
+
+
+
+
+
+	<!-- Lecturers -->
+	<bean id="lecturer1" class="domain.Lecturer">
+		<property name="userAccount" ref="userAccount2" />
+		<property name="name" value="Borja" />
+		<property name="surname" value="Gil" />
+		<property name="email" value="borja@gmail.com" />
+		<property name="phone" value="+34(221)1478" />
+		<property name="groups">
+			<list>
+				
+
+			</list>
+		</property>
+		<property name="assigments">
+			<list>
+				
+			</list>
+		</property>
+		<property name="subjects">
+			<list>
+				
+
+			</list>
+		</property>
+		<property name="learningMaterials">
+			<list>
+				
+			</list>
+		</property>
+		<property name="socialIdentities">
+			<list>
+				
+			</list>
+		</property>
+		<property name="syllabus">
+			<list>
+				
+			</list>
+		</property>
+	</bean>
+
+	
+	
+	
+
+
+		
+</beans>
